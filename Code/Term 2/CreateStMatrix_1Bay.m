@@ -23,32 +23,32 @@ while ~isempty(queue)
             end
         end
     elseif s(1) == 1
-        for t = 0:max_H
+        for h = 0:max_H
             new_s = shifted_s;
             new_s(1) = new_s(1) + (s(1) - 1); %[[11] 1 0] -> [ [11] 0 1] case where remaining balls are shifted one step ahead while one ball is thrown
-            if t >= 1 %if t=0, then ball is just dropped
-                new_s(t) = new_s(t) + 1; %ball thrown to required position from max_H positions
+            if h >= 1 %if t=0, then ball is just dropped
+                new_s(h) = new_s(h) + 1; %ball thrown to required position from max_H positions
             end
-            succs(end+1,:) = {new_s, t}; %adding successor along with height thrown to reach position (t in this case)
+            succs(end+1,:) = {new_s, h}; %adding successor along with height thrown to reach position (t in this case)
         end
     
     elseif s(1)==2 
-        for t = 0:max_H
+        for h = 0:max_H
             new_s = shifted_s;
             new_s(1) = new_s(1) + (s(1) - 1); %[[11] 1 0] -> [ [11] 0 1] case where remaining balls are shifted one step ahead while one ball is thrown
-            if t >= 1 %if t=0, then ball is just dropped
-                new_s(t) = new_s(t) + 1; %ball thrown to required position from max_H positions
+            if h >= 1 %if t=0, then ball is just dropped
+                new_s(h) = new_s(h) + 1; %ball thrown to required position from max_H positions
             end
-            succs(end+1,:)= {new_s, [t,1]}; %adding successor along with height thrown to reach position (t in this case)
+            succs(end+1,:)= {new_s, [h,1]}; %adding successor along with height thrown to reach position (t in this case)
         end
     else
-        for t = 0:max_H
+        for h = 0:max_H
             new_s = shifted_s;
             new_s(1) = new_s(1) + (s(1) - 1); %[[11] 1 0] -> [ [11] 0 1] case where remaining balls are shifted one step ahead while one ball is thrown
-            if t >= 1 %if t=0, then ball is just dropped
-                new_s(t) = new_s(t) + 1; %ball thrown to required position from max_H positions
+            if h >= 1 %if t=0, then ball is just dropped
+                new_s(h) = new_s(h) + 1; %ball thrown to required position from max_H positions
             end
-            succs(end+1,:)= {new_s, [t,1,1]}; %adding successor along with height thrown to reach position (t in this case)
+            succs(end+1,:)= {new_s, [h,1,1]}; %adding successor along with height thrown to reach position (t in this case)
         end
     end
     

@@ -131,7 +131,7 @@ grid on;
 
 % Plot the residual sum of squares over iterations - Log Graph
 figure('Name','Convergence_Log');
-t = 1:n;`
+t = 1:n;
 loglog(t,mean_diff_vec)
 % plot(t,diff_vec);
 % ylim([0,0.01])
